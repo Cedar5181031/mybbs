@@ -1,0 +1,20 @@
+body {
+    background: #e9e7ee;
+    font-size:16pt;
+    text-align: center;
+}
+
+table {
+    /*width: 1000px;*/
+    /*table-layout: fixed;*/
+    /*word-wrap: break-word;*/
+}
+
+table th {
+    background: #6abcae;
+}
+
+table td {
+    background: #ffffff;
+}
+

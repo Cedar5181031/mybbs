@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>削除依頼ページ</title>
+</head>
+<body>
+    <form action='{% url 'threadlist' %}' method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <div>
+            <input type="submit" type="button" value="送信">
+            <a href="/bbs/threadlist"><input type="button" value="戻る" id ="button"></a>
+        </div>
+    </form>
+</body>
+</html>

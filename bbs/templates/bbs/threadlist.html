@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>電子掲示板</title>
+    <link rel="stylesheet" href="{% static 'bbs/css/threadliststyle.css' %}" type="text/css">
+</head>
+    <body>
+        <h1>電子掲示板</h1>
+        <form action="{% url 'createthread' %}" class="threadcreatebutton"><p><input type="submit" value="スレッド作成" id="button"></p></form>
+        <table border="1" align="center">
+        <tr>
+                <th>ID</th>
+                <th>スレッド名</th>
+                <th>スレッド作成者</th>
+                <th>作成日</th>
+        </tr>
+            {% for item in data %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td><a href="{% url 'threadcontent' item.id %}">{{item.threadname}}</a></td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.lastdate}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    <a href="{% url 'delete_request' %}">削除依頼</a>
+    </body>
+</html>

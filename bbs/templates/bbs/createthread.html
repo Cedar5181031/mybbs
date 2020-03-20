@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>スレッド作成ページ</title>
+    <link rel="stylesheet" href="{% static 'bbs/css/createthreadstyle.css' %}" type="text/css">
+</head>
+    <body>
+        <h1>スレッド作成ページ</h1>
+             <form action='{% url 'createthread' %}' method="post">
+                 {% csrf_token %}
+                 {{form.as_p }}
+                 <div>
+                     <input type="submit" value="作成" >
+                     <a  href="/bbs/threadlist"><input type="button" value="戻る"></a>
+                 </div>
+             </form>
+    </body>
+</html>
