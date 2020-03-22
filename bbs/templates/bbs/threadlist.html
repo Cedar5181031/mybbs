@@ -18,13 +18,14 @@
         </tr>
             {% for item in data %}
                 <tr>
-                    <td>{{forloop.counter}}</td>
+                    <td>{{item.id}}</td>
                     <td><a href="{% url 'threadcontent' item.id %}">{{item.threadname}}</a></td>
                     <td>{{item.name}}</td>
                     <td>{{item.lastdate}}</td>
                 </tr>
             {% endfor %}
         </table>
-    <a href="{% url 'delete_request' %}">削除依頼</a>
+        <a href="{% url 'manager_login' %}">管理者ページへログイン</a>
+        <a href="{% url 'thread_deleterequest' %}">削除依頼</a>
     </body>
 </html>
