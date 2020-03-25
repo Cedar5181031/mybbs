@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action='{% url 'threadcontent_deleterequest' %}' method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <div>
+            <input type="submit" type="button" value="送信">
+            <a href={{request.META.HTTP_REFERER}}><input type="button" value="戻る"></a>
+        </div>
+    </form>
+</body>
+</html>

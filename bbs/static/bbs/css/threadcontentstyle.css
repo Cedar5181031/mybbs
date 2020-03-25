@@ -1,0 +1,19 @@
+body {
+    background: #e9e7ee;
+    font-size:16pt;
+    text-align: center;
+}
+
+table,th,td {
+  border: 1px solid #bbb;
+}
+
+table th {
+    background: #6abcae;
+    width: 200px;
+}
+
+table td {
+    background: #ffffff;
+}
+

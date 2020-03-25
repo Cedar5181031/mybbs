@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{threadtitle}}</title>
+    <link rel="stylesheet" href="{% static 'bbs/css/threadcontentstyle.css' %}" type="text/css">
+</head>
+    <p>電子掲示板</p>
+    <h>{{threadtitle}}</h><br>
+    <table border="1" align="center">
+        <tr>
+            <th>ID</th>
+            <th>名前</th>
+            <th>日付</th>
+            <th>投稿内容</th>
+        </tr>
+            {% for item in data %}
+                <tr>
+                    <td>{{item.count}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.date}}</td>
+                    <td>{{item.content}}</td>
+                <tr>
+            {% endfor %}
+    </table>
+    <form action='{% url 'threadcontent' id %}' method="post">
+          {% csrf_token %}
+          {{form.as_p}}
+        <div>
+            <input type="submit" value="送信" id ="button">
+            <a href="/bbs/threadlist/"><input type="button" value="戻る" id ="button"></a>
+        </div>
+    </form>
+
+    <div class="pager">
+        {% if data.has_previous %}
+            <a href="?pagenum={{data.previous_page_number}}">前へ</a>
+        {% endif %}
+
+    <span>
+        {{data.number}}/{{data.paginator.numpages}}
+    </span>
+
+    {% if data.has_next %}
+        <a href="?pagenum={{data.next_page_number}}">次へ</a>
+    {% endif %}
+    </div>
+
+    <a href="{% url 'threadcontent_deleterequest'%}?p={{ id }}">削除依頼</a>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理者ログインページ</title>
+</head>
+<body>
+    <form action='{% url 'manager_login' %}' method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <div>
+            <input type="submit" type="button" value="ログイン">
+            <a href="/bbs/threadlist"><input type="button" value="戻る" id ="button"></a>
+        </div>
+    </form>
+</body>
+</html>
