@@ -25,6 +25,20 @@
                 </tr>
             {% endfor %}
         </table>
+
+        <div class="pager">
+            {% if data.has_previous %}
+                <a href="?pagenum={{data.previous_page_number}}">前へ</a>
+            {% endif %}
+
+        <span>
+            {{data.number}}/{{data.paginator.num_pages}}
+        </span>
+
+        {% if data.has_next %}
+            <a href="?pagenum={{data.next_page_number}}">次へ</a>
+        {% endif %}
+        </div>
         <a href="{% url 'manager_login' %}">管理者ページへログイン</a>
         <a href="{% url 'thread_deleterequest' %}">削除依頼</a>
     </body>
