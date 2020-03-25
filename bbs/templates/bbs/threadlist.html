@@ -38,6 +38,7 @@
         {% if data.has_next %}
             <a href="?pagenum={{data.next_page_number}}">次へ</a>
         {% endif %}
+
         </div>
         <a href="{% url 'manager_login' %}">管理者ページへログイン</a>
         <a href="{% url 'thread_deleterequest' %}">削除依頼</a>
